@@ -1,0 +1,50 @@
+{
+  "applications": ["JmdReports"],
+  "changelogDate": "20230829134300",
+  "dto": "mapstruct",
+  "entityTableName": "sales",
+  "fields": [
+    {
+      "fieldName": "prmId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "unitsDelivered",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "unitsActivation",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "orderCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "month",
+      "fieldType": "Month",
+      "fieldValues": "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec"
+    },
+    {
+      "fieldName": "year",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "timestamp",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "name": "Sales",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "jmdUser",
+      "otherEntityRelationshipName": "saleData",
+      "relationshipName": "retailer",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

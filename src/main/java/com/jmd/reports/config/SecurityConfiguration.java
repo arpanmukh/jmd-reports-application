@@ -39,7 +39,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .cors(withDefaults())
-            .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**").disable())
+            .csrf(csrf -> csrf.disable())
             .addFilterAfter(new SpaWebFilter(), BasicAuthenticationFilter.class)
             .headers(headers ->
                 headers
@@ -61,7 +61,6 @@ public class SecurityConfiguration {
                     .requestMatchers("/i18n/**").permitAll()
                     .requestMatchers("/content/**").permitAll()
                     .requestMatchers("/swagger-ui/**").permitAll()
-                    .requestMatchers("/h2-console/**").permitAll()
                     .requestMatchers(HttpMethod.POST, "/api/authenticate").permitAll()
                     .requestMatchers(HttpMethod.GET, "/api/authenticate").permitAll()
                     .requestMatchers("/api/register").permitAll()
