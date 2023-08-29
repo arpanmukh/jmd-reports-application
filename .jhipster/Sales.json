@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "entityTableName": "sales",
+  "fields": [
+    {
+      "fieldName": "prmId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "unitsDelivered",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "unitsActivation",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "orderCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "month",
+      "fieldType": "Month",
+      "fieldValues": "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec"
+    },
+    {
+      "fieldName": "year",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "timestamp",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "name": "Sales",
+  "relationships": [
+    {
+      "otherEntityName": "jmdUser",
+      "otherEntityRelationshipName": "saleData",
+      "relationshipName": "retailer",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ]
+}
