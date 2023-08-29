@@ -1,0 +1,61 @@
+{
+  "applications": ["JmdReports"],
+  "changelogDate": "20230829134259",
+  "dto": "mapstruct",
+  "entityTableName": "jmd_user",
+  "fields": [
+    {
+      "fieldName": "userId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prmId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "role",
+      "fieldType": "JmdRole",
+      "fieldValues": "JMDO,Retailer"
+    },
+    {
+      "fieldName": "mobileNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "class",
+      "fieldType": "JmdClass",
+      "fieldValues": "A,APlus,AStar,X,B,C,D,E"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "name": "JmdUser",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "sales",
+      "otherEntityRelationshipName": "retailer",
+      "relationshipName": "saleData",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "jmdUser",
+      "otherEntityRelationshipName": "jmdo",
+      "relationshipName": "retailer",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "jmdUser",
+      "otherEntityRelationshipName": "retailer",
+      "relationshipName": "jmdo",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
