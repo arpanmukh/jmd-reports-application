@@ -1,0 +1,77 @@
+
+application {
+  config {
+    baseName Reports,
+    applicationType monolith,
+    serverPort 9001,
+    prodDatabaseType mysql,
+    clientFramework react,
+    clientPackageManager npm,
+    authenticationType jwt,
+    buildTool maven,
+    enableSwaggerCodegen true,
+    packageName com.jmd.report
+  }
+  entities *
+  dto * with mapstruct
+  paginate * with infinite-scroll
+  service all with serviceImpl
+}
+
+entity JmdUser {
+    userId String,
+    prmId String,
+    role JmdRole,
+    mobileNumber String,
+    class JmdClass,
+    name String,
+}
+
+enum JmdRole {
+    JMDO,
+    Retailer
+}
+
+enum JmdClass {
+    A,
+    APlus,
+    AStar,
+    X,
+    B,
+    C,
+    D,
+    E
+}
+
+relationship ManyToMany {
+    JmdUser{retailer} to JmdUser{jmdo}
+}
+
+entity Sales {
+    prmId String,
+    unitsDelivered Integer,
+    unitsActivation Integer,
+    orderCount Integer,
+    month Month,
+    year Integer,
+    timestamp LocalTime
+}
+
+enum Month {
+    Jan,
+    Feb,
+    Mar,
+    Apr,
+    May,
+    Jun,
+    Jul,
+    Aug,
+    Sep,
+    Oct,
+    Nov,
+    Dec
+}
+
+relationship OneToOne {
+    JmdUser{retailer} to Sales
+}
